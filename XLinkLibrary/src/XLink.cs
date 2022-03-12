@@ -148,14 +148,25 @@ namespace XLinkLibrary
 
         internal uint nameTablePos;
 
-        public XLink(string fileName) {
+        public UserStructure VersionStruct = UserStructure.ELinkNormal;
+
+        public enum UserStructure
+        {
+            ELinkNormal,
+            SLinkNormal,
+            SLinkBOTW,
+            ELinkBOTW,
+        }
+
+        public XLink(string fileName, UserStructure readMethod) {
+            VersionStruct = readMethod;
             using (var reader = new FileReader(fileName)) {
                 Read(reader);
             }
         }
 
-        public XLink(Stream stream)
-        {
+        public XLink(Stream stream, UserStructure readMethod) {
+            VersionStruct = readMethod;
             using (var reader = new FileReader(stream)) {
                 Read(reader);
             }
