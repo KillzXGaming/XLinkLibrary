@@ -107,11 +107,11 @@ namespace XLinkLibrary
                     LocalProperyRefNameTable[i] = xlink.ReadNameTable(reader);
                 }
 
-                if (xlink.VersionStruct == XLink.ReadMethod.ELinkNormal)
+                if (xlink.VersionStruct == XLink.UserStructure.ELinkNormal)
                     reader.ReadBytes(4); // BOTW ELINK 
-                if (xlink.VersionStruct == XLink.ReadMethod.SLinkBOTW)
+                if (xlink.VersionStruct == XLink.UserStructure.SLinkBOTW)
                     reader.ReadBytes(32);//BOTW SLINK 
-                if (xlink.VersionStruct == XLink.ReadMethod.SLinkNormal)
+                if (xlink.VersionStruct == XLink.UserStructure.SLinkNormal)
                      reader.ReadBytes(40);// MK8 SLINK
 
                 SortedAssetIDTable = reader.ReadUInt16s((int)numCallTable);
