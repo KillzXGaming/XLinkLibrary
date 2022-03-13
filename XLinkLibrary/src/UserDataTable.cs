@@ -107,7 +107,7 @@ namespace XLinkLibrary
                     LocalProperyRefNameTable[i] = xlink.ReadNameTable(reader);
                 }
 
-                if (xlink.VersionStruct == XLink.UserStructure.ELinkNormal)
+                if (xlink.VersionStruct == XLink.UserStructure.ELinkBOTW)
                     reader.ReadBytes(4); // BOTW ELINK 
                 if (xlink.VersionStruct == XLink.UserStructure.SLinkBOTW)
                     reader.ReadBytes(32);//BOTW SLINK 

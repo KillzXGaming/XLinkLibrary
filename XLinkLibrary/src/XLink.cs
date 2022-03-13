@@ -174,7 +174,7 @@ namespace XLinkLibrary
 
         void Read(FileReader reader)
         {
-            reader.ByteOrder = Syroot.BinaryData.ByteOrder.LittleEndian;
+            reader.ByteOrder = Syroot.BinaryData.ByteOrder.BigEndian;
             reader.ReadSignature(4, "XLNK");
             uint FileSize = reader.ReadUInt32();
             uint Version = reader.ReadUInt32();

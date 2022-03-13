@@ -7,6 +7,8 @@ namespace XLinkLibrary.Test
     {
         static void Main(string[] args)
         {
+            args = new string[] { "ELink2DB.sbelnk 0.rarc" };
+
             var file = new XLink(args[0], XLink.UserStructure.ELinkBOTW);
             string folder = Path.GetFileNameWithoutExtension(args[0]);
             if (!Directory.Exists(folder))
