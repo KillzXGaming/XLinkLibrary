@@ -9,7 +9,7 @@ namespace XLinkLibrary.Test
         {
             args = new string[] { "ELink2DB.sbelnk 0.rarc" };
 
-            var file = new XLink(args[0], XLink.UserStructure.ELinkBOTW);
+            var file = new XLink(args[0], XLink.UserStructure.ELinkBOTW, true);
             string folder = Path.GetFileNameWithoutExtension(args[0]);
             if (!Directory.Exists(folder))
                 Directory.CreateDirectory(folder);
