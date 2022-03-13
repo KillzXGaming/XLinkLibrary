@@ -6,7 +6,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\XLinkLibrary.csproj" />
     <ProjectReference Include="..\XLinkLibrary\XLinkLibrary.csproj" />
   </ItemGroup>
 
