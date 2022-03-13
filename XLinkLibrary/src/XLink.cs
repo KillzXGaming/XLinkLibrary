@@ -158,23 +158,24 @@ namespace XLinkLibrary
             ELinkBOTW,
         }
 
-        public XLink(string fileName, UserStructure readMethod) {
+        public XLink(string fileName, UserStructure readMethod, bool bigEndian) {
             VersionStruct = readMethod;
             using (var reader = new FileReader(fileName)) {
-                Read(reader);
+                Read(reader, bigEndian);
             }
         }
 
-        public XLink(Stream stream, UserStructure readMethod) {
+        public XLink(Stream stream, UserStructure readMethod, bool bigEndian) {
             VersionStruct = readMethod;
             using (var reader = new FileReader(stream)) {
-                Read(reader);
+                Read(reader, bigEndian);
             }
         }
 
-        void Read(FileReader reader)
+        void Read(FileReader reader, bool bigEndian)
         {
-            reader.ByteOrder = Syroot.BinaryData.ByteOrder.BigEndian;
+            if (bigEndian)
+                reader.ByteOrder = Syroot.BinaryData.ByteOrder.BigEndian;
             reader.ReadSignature(4, "XLNK");
             uint FileSize = reader.ReadUInt32();
             uint Version = reader.ReadUInt32();
